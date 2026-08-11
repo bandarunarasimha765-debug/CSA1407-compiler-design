@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    char str[200];
+    int i, space = 0, newline = 0;
+
+    printf("Enter text:\n");
+
+    while (fgets(str, sizeof(str), stdin) != NULL)
+    {
+        for (i = 0; str[i] != '\0'; i++)
+        {
+            if (str[i] == ' ')
+                space++;
+            if (str[i] == '\n')
+                newline++;
+        }
+
+        if (str[0] == '\n')
+            break;   // Press Enter on an empty line to stop
+    }
+
+    printf("Number of Whitespaces = %d\n", space);
+    printf("Number of Newline Characters = %d\n", newline);
+
+    return 0;
+}
