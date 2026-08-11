@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    char str[200];
+    int i = 0;
+
+    printf("Enter a line:\n");
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0')
+    {
+        
+        if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
+        {
+            i++;
+            continue;
+        }
+
+        if (str[i] == '/' && str[i+1] == '/')
+            break;
+
+        if (str[i] == '/' && str[i+1] == '*')
+        {
+            i += 2;
+            while (!(str[i] == '*' && str[i+1] == '/') && str[i] != '\0')
+                i++;
+            i += 2;
+            continue;
+        }
+
+        printf("%c", str[i]);
+        i++;
+    }
+
+    return 0;
+}
