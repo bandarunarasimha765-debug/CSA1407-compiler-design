@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+    char nt;
+
+    printf("Enter Non-Terminal (E,T,F): ");
+    scanf("%c", &nt);
+
+    switch(nt)
+    {
+        case 'E':
+            printf("FIRST(E) = { i, ( }\n");
+            break;
+        case 'T':
+            printf("FIRST(T) = { i, ( }\n");
+            break;
+        case 'F':
+            printf("FIRST(F) = { i, ( }\n");
+            break;
+        default:
+            printf("Non-Terminal not found\n");
+    }
+
+    return 0;
+}
