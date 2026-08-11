@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+    char str[100];
+    int i = 0;
+
+    printf("Enter a statement: ");
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0')
+    {
+        if (isalpha(str[i]))
+        {
+            while (isalnum(str[i]))
+                printf("%c", str[i++]);
+            printf(" --> Identifier\n");
+        }
+        else if (isdigit(str[i]))
+        {
+            while (isdigit(str[i]))
+                printf("%c", str[i++]);
+            printf(" --> Constant\n");
+        }
+        else if (str[i]=='+' || str[i]=='-' || str[i]=='*' ||
+                 str[i]=='/' || str[i]=='=')
+        {
+            printf("%c --> Operator\n", str[i]);
+            i++;
+        }
+        else
+        {
+            i++;
+        }
+    }
+
+    return 0;
+}
